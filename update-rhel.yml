@@ -1,0 +1,5 @@
+---
+- hosts: all
+  name: Update RHEL based systems
+  roles:
+    - update

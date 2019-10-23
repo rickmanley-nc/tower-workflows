@@ -1,0 +1,5 @@
+---
+- hosts: all
+  name: Register RHEL based systems
+  roles:
+    - register

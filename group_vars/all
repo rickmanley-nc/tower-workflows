@@ -1,0 +1,7 @@
+---
+#used by 'register' role
+activation_key: changeme
+rhn_org_id: changeme
+pool_ID: changeme
+repo_list:
+  - rhel-7-server-rpms
