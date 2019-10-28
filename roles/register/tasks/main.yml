@@ -1,12 +1,20 @@
 ---
-- name: Register
-  command: subscription-manager register --activationkey={{activation_key}} --org={{rhn_org_id}}
-  ignore_errors: yes #Added this because I'm using the Employee SKU, and the auto attach may fail
+- name: Register with activationkey
+  redhat_subscription:
+    state: present
+    activationkey: "{{activation_key}}"
+    org_id: "{{rhn_org_id}}"
+    pool_ids: "{{pool_ID}}"
   tags: register
 
-- name: Attach
-  command: subscription-manager attach --pool={{pool_ID}}
-  tags: register
+#- name: Register
+#  command: subscription-manager register --activationkey={{activation_key}} --org={{rhn_org_id}}
+#  ignore_errors: yes #Added this because I'm using the Employee SKU, and the auto attach may fail
+#  tags: register
+
+#- name: Attach
+#  command: subscription-manager attach --pool={{pool_ID}}
+#  tags: register
 
 - name: Disable All and Enable Specific Repositories
   block:
